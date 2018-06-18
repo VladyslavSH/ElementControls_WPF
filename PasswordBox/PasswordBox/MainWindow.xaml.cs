@@ -28,15 +28,18 @@ namespace PasswordBox
             InitializeComponent();
         }
 
-        
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            Console.WriteLine(max);
+            if(max>=textBox.Text.Length||max == 0)
             buf = textBox.Text;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             passwordBox.Password = buf;
+            buf = null;
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -46,7 +49,7 @@ namespace PasswordBox
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(masking.SelectedIndex == 0)
+            if (masking.SelectedIndex == 0)
             {
                 passwordBox.PasswordChar = (mask = "?")[0];
             }
@@ -65,13 +68,13 @@ namespace PasswordBox
             change_count.Content = passwordBox.Password.Length.ToString();
         }
 
-        
+
         private void MaxLengt_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (MaxLengt.Text == String.Empty)
+            if (MaxLengt.Text == String.Empty || MaxLengt.Text == "0")
             {
                 max = 0;
-                CurrentMax.Content = "Enter Max";
+                CurrentMax.Content = "Unlimited";
             }
             else { CurrentMax.Content = MaxLengt.Text; max = Convert.ToInt32(MaxLengt.Text); }
             passwordBox.MaxLength = max;
