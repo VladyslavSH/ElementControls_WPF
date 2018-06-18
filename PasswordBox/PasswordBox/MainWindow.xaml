@@ -24,7 +24,7 @@
             <Label HorizontalAlignment="Center" FontSize="25">
                 <Bold>-PasswordBox-</Bold>
             </Label>
-            <PasswordBox Name="passwordBox" Margin="5" Width="540" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20"></PasswordBox>
+            <PasswordBox Name="passwordBox" Margin="5" Width="540" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" PasswordChanged="passwordBox_PasswordChanged"></PasswordBox>
             <StackPanel Orientation="Horizontal">
                 <Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="40" Width="130" FontSize="15" Margin="100 10" Click="Button_Click_2">Clear</Button>
                 <Button HorizontalAlignment="Center" Height="40" Width="130" FontSize="20" Margin="10" Click="Button_Click_1">Paste into</Button>
@@ -47,9 +47,9 @@
                     <ComboBoxItem>*</ComboBoxItem>
                 </ComboBox>
             <Label HorizontalAlignment="Center" FontSize="14">Max Input Lenght:</Label>
-            <ComboBox HorizontalAlignment="Center" Width="80" Margin="10"></ComboBox>
+                <TextBox Name="MaxLengt" HorizontalAlignment="Center" Width="80" Margin="10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="MaxLengt_TextChanged" PreviewTextInput="MaxLengt_PreviewTextInput"></TextBox>
                 <Label HorizontalAlignment="Center" FontSize="14">Current Max:</Label>
-                <Label HorizontalAlignment="Center" FontWeight="Bold" FontSize="25"></Label>
+                <Label Name="CurrentMax" HorizontalAlignment="Center" FontWeight="Bold" FontSize="25">Unlimited</Label>
             </StackPanel>
     </Grid>
     </Border>
