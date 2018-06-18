@@ -20,9 +20,42 @@ namespace PasswordBox
     /// </summary>
     public partial class MainWindow : Window
     {
+        string mask;
+        string buf = null;
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            buf = textBox.Text;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            passwordBox.Password = buf;
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            passwordBox.Clear();
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(masking.SelectedIndex == 0)
+            {
+                passwordBox.PasswordChar = (mask = "?")[0];
+            }
+            if (masking.SelectedIndex == 1)
+            {
+                passwordBox.PasswordChar = (mask = "$")[0];
+            }
+            if (masking.SelectedIndex == 2)
+            {
+                passwordBox.PasswordChar = (mask = "*")[0];
+            }
         }
     }
 }

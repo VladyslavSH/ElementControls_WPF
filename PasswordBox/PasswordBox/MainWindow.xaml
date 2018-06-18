@@ -5,11 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PasswordBox"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="800">
+        Title="MainWindow" Height="350" Width="700">
+    <Window.Resources>
+        <Style TargetType="StackPanel">
+        </Style>
+    </Window.Resources>
+    <Border BorderBrush="Black">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="0.4*"></ColumnDefinition>
+            <ColumnDefinition Width="0.25*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -19,10 +24,33 @@
             <Label HorizontalAlignment="Center" FontSize="25">
                 <Bold>-PasswordBox-</Bold>
             </Label>
-            <PasswordBox Margin="5" Width="540" Height="40" Padding="10"></PasswordBox>
+            <PasswordBox Name="passwordBox" Margin="5" Width="540" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20"></PasswordBox>
+            <StackPanel Orientation="Horizontal">
+                <Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="40" Width="130" FontSize="15" Margin="100 10" Click="Button_Click_2">Clear</Button>
+                <Button HorizontalAlignment="Center" Height="40" Width="130" FontSize="20" Margin="10" Click="Button_Click_1">Paste into</Button>
+            </StackPanel>
         </StackPanel>
-        <Button HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="40" Width="130" FontSize="20" Margin="10">Clear</Button>
-        <Button HorizontalAlignment="Center" Height="40" Width="130" FontSize="20" Margin="10">Clear</Button>
-
+        <StackPanel Background="AntiqueWhite" Grid.Row="1">
+            <Label HorizontalAlignment="Center" FontSize="25">
+                <Bold>-Scratch TextBox-</Bold>
+            </Label>
+            <TextBox Name="textBox" Margin="5" Width="540" Height="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20"></TextBox>
+                <Button HorizontalAlignment="Center" Height="40" Width="150" FontSize="20" Margin="10" Click="Button_Click">Copy Contenst</Button>
+        </StackPanel>
+        <StackPanel Background="Azure" Grid.Column="1" Grid.RowSpan="2">
+            <Label HorizontalAlignment="Center" FontSize="14">Change Count:</Label>
+            <Label Name="change_count" HorizontalAlignment="Center" FontSize="22">0</Label>
+            <Label HorizontalAlignment="Center" FontSize="14">Masking Character:</Label>
+            <ComboBox Name="masking" SelectedIndex="0" HorizontalAlignment="Center" Width="50" Margin="10" SelectionChanged="ComboBox_SelectionChanged" HorizontalContentAlignment="Center">
+                    <ComboBoxItem>?</ComboBoxItem>
+                    <ComboBoxItem>$</ComboBoxItem>
+                    <ComboBoxItem>*</ComboBoxItem>
+                </ComboBox>
+            <Label HorizontalAlignment="Center" FontSize="14">Max Input Lenght:</Label>
+            <ComboBox HorizontalAlignment="Center" Width="80" Margin="10"></ComboBox>
+                <Label HorizontalAlignment="Center" FontSize="14">Current Max:</Label>
+                <Label HorizontalAlignment="Center" FontWeight="Bold" FontSize="25"></Label>
+            </StackPanel>
     </Grid>
+    </Border>
 </Window>
